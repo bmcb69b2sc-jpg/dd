@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Điểm Danh Lớp Học</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Điểm Danh Học Sinh</h1>
+    <p class="subtitle">Danh sách 13 học sinh (mặc định: Vắng — bấm vào trạng thái để đổi nhanh hoặc dùng chế độ hỏi từng bạn).</p>
+
+    <div class="controls">
+      <button class="btn-primary" onclick="startSequential()">Hỏi lần lượt (c/k)</button>
+      <button class="btn-secondary" onclick="resetAll()">Đặt lại tất cả (Vắng)</button>
+      <button class="btn-export" onclick="downloadResult()">Tải kết quả (.txt)</button>
+    </div>
+
+    <div class="prompt-box" id="promptBox">
+      <div class="prompt-question" id="promptQuestion">Thép có mặt không? (c/k):</div>
+      <div class="prompt-input-row">
+        <input type="text" id="answerInput" placeholder="Nhập c (có mặt) hoặc k (vắng) rồi nhấn Enter..." onkeydown="handleKey(event)" />
+        <button class="btn-primary" onclick="submitAnswer()">Xác nhận</button>
+        <button class="btn-secondary" onclick="stopSequential()">Dừng</button>
+      </div>
+      <div class="prompt-hint">Gợi ý: Gõ <b>c</b>, <b>co</b>, <b>có</b> để đánh dấu Có mặt; nhấn <b>Enter</b> hoặc gõ <b>k</b> để giữ Vắng.</div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 60px;">STT</th>
+          <th>Tên học sinh</th>
+          <th style="width: 140px;">Trạng thái</th>
+        </tr>
+      </thead>
+      <tbody id="studentTable"></tbody>
+    </table>
+
+    <div class="summary">
+      <span>Tổng số: <span id="totalCount">13</span></span>
+      <span>Có mặt: <span class="present-count" id="presentCount">0</span></span>
+      <span>Vắng: <span class="absent-count" id="absentCount">13</span></span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
