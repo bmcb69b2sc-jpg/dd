@@ -15,31 +15,31 @@ body {
 
 .container {
   width: 100%;
-  max-width: 680px;
+  max-width: 700px;
   background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   padding: 28px;
 }
 
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
 h1 {
   font-size: 22px;
   font-weight: 700;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   color: #0f172a;
 }
 
 .subtitle {
   font-size: 14px;
   color: #64748b;
-  margin-bottom: 20px;
-}
-
-.controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 20px;
 }
 
 button {
@@ -52,6 +52,17 @@ button {
   transition: all 0.15s ease;
 }
 
+.btn-icon {
+  background-color: #f1f5f9;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  white-space: nowrap;
+}
+
+.btn-icon:hover {
+  background-color: #e2e8f0;
+}
+
 .btn-primary {
   background-color: #2563eb;
   color: #ffffff;
@@ -61,6 +72,16 @@ button {
   background-color: #1d4ed8;
 }
 
+.btn-success {
+  background-color: #16a34a;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.btn-success:hover {
+  background-color: #15803d;
+}
+
 .btn-secondary {
   background-color: #e2e8f0;
   color: #334155;
@@ -68,6 +89,15 @@ button {
 
 .btn-secondary:hover {
   background-color: #cbd5e1;
+}
+
+.btn-danger {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.btn-danger:hover {
+  background-color: #fecaca;
 }
 
 .btn-export {
@@ -80,6 +110,84 @@ button {
   background-color: #334155;
 }
 
+/* Khung cài đặt */
+.settings-box {
+  display: none;
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+
+.settings-box.active {
+  display: block;
+}
+
+.settings-box h3 {
+  font-size: 16px;
+  margin-bottom: 14px;
+  color: #0f172a;
+}
+
+.setting-item {
+  margin-bottom: 14px;
+  font-size: 14px;
+}
+
+.setting-item label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #334155;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.setting-row {
+  display: flex;
+  gap: 8px;
+}
+
+.setting-row input,
+.add-student-box input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+}
+
+.setting-row input:focus,
+.add-student-box input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.setting-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 6px;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* Thêm học sinh */
+.add-student-box {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Khung hỏi c/k */
 .prompt-box {
   display: none;
   background-color: #eff6ff;
@@ -125,6 +233,7 @@ button {
   margin-top: 8px;
 }
 
+/* Bảng */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -133,7 +242,7 @@ table {
 
 th, td {
   text-align: left;
-  padding: 12px 14px;
+  padding: 11px 14px;
   border-bottom: 1px solid #e2e8f0;
   font-size: 15px;
 }
@@ -172,6 +281,19 @@ tr.highlight {
 .badge-absent {
   background-color: #fee2e2;
   color: #991b1b;
+}
+
+.btn-delete {
+  background: transparent;
+  color: #94a3b8;
+  padding: 4px 10px;
+  font-size: 16px;
+  border-radius: 6px;
+}
+
+.btn-delete:hover {
+  background-color: #fee2e2;
+  color: #dc2626;
 }
 
 .summary {
