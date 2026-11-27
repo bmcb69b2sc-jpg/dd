@@ -1,10 +1,7 @@
 const co_mat = true;
 const vang = false;
 
-const defaultStudents = [
-  "Thép", "Elsa", "Sony", "Hưng", "Lâm", "Phong",
-  "Kiwi", "Kido", "Lily", "Kitty", "Thư", "Kool", "Hạo Anh"
-];
+const defaultStudents = [];
 
 let students = [...defaultStudents];
 let diem_danh = {};
