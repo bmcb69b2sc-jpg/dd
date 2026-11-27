@@ -8,15 +8,52 @@
 </head>
 <body>
   <div class="container">
-    <h1>Điểm Danh Học Sinh</h1>
-    <p class="subtitle">Danh sách 13 học sinh (mặc định: Vắng — bấm vào trạng thái để đổi nhanh hoặc dùng chế độ hỏi từng bạn).</p>
+    <div class="header-row">
+      <div>
+        <h1 id="classTitle">Điểm Danh Học Sinh</h1>
+        <p class="subtitle" id="classSubtitle">Danh sách 13 học sinh — bấm vào trạng thái để đổi nhanh hoặc dùng chế độ hỏi từng bạn.</p>
+      </div>
+      <button class="btn-icon" onclick="toggleSettings()" title="Cài đặt">⚙️ Cài đặt</button>
+    </div>
 
+    <!-- Khung Cài đặt (ẩn mặc định) -->
+    <div class="settings-box" id="settingsBox">
+      <h3>⚙️ Cài đặt lớp học</h3>
+      <div class="setting-item">
+        <label for="classNameInput">Tên lớp / Tiêu đề:</label>
+        <div class="setting-row">
+          <input type="text" id="classNameInput" placeholder="VD: Điểm Danh Lớp 10A1" />
+          <button class="btn-primary" onclick="saveClassName()">Lưu tên</button>
+        </div>
+      </div>
+
+      <div class="setting-item">
+        <label>
+          <input type="checkbox" id="autoSaveToggle" checked onchange="toggleAutoSave()" />
+          Tự động lưu danh sách & trạng thái trên trình duyệt (không mất khi tải lại trang)
+        </label>
+      </div>
+
+      <div class="setting-actions">
+        <button class="btn-secondary" onclick="markAllPresent()">Đánh dấu tất cả Có mặt</button>
+        <button class="btn-danger" onclick="restoreDefaultStudents()">Khôi phục 13 học sinh mặc định</button>
+      </div>
+    </div>
+
+    <!-- Thanh thêm học sinh mới -->
+    <div class="add-student-box">
+      <input type="text" id="newStudentInput" placeholder="Nhập tên học sinh mới (có thể nhập nhiều tên cách nhau bằng dấu phẩy)..." onkeydown="handleAddKey(event)" />
+      <button class="btn-success" onclick="addStudent()">+ Thêm</button>
+    </div>
+
+    <!-- Các nút điều khiển chính -->
     <div class="controls">
       <button class="btn-primary" onclick="startSequential()">Hỏi lần lượt (c/k)</button>
       <button class="btn-secondary" onclick="resetAll()">Đặt lại tất cả (Vắng)</button>
       <button class="btn-export" onclick="downloadResult()">Tải kết quả (.txt)</button>
     </div>
 
+    <!-- Khung hỏi lần lượt c/k -->
     <div class="prompt-box" id="promptBox">
       <div class="prompt-question" id="promptQuestion">Thép có mặt không? (c/k):</div>
       <div class="prompt-input-row">
@@ -27,17 +64,20 @@
       <div class="prompt-hint">Gợi ý: Gõ <b>c</b>, <b>co</b>, <b>có</b> để đánh dấu Có mặt; nhấn <b>Enter</b> hoặc gõ <b>k</b> để giữ Vắng.</div>
     </div>
 
+    <!-- Bảng danh sách học sinh -->
     <table>
       <thead>
         <tr>
-          <th style="width: 60px;">STT</th>
+          <th style="width: 55px;">STT</th>
           <th>Tên học sinh</th>
-          <th style="width: 140px;">Trạng thái</th>
+          <th style="width: 130px;">Trạng thái</th>
+          <th style="width: 70px; text-align: center;">Xóa</th>
         </tr>
       </thead>
       <tbody id="studentTable"></tbody>
     </table>
 
+    <!-- Thống kê tổng kết -->
     <div class="summary">
       <span>Tổng số: <span id="totalCount">13</span></span>
       <span>Có mặt: <span class="present-count" id="presentCount">0</span></span>
